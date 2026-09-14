@@ -31,7 +31,7 @@ header-includes:
 
 ## Abstract
 
-Benford's Law describes the expected frequency distribution of leading digits in many naturally occurring datasets. The open-source Python package *benford_py* implements statistical tests for conformity with this principle. Despite its last release (v0.5.0) in June 2021 and minimal subsequent maintenance, the package's documented workflow remains functional on a contemporary Python stack. This study verifies the workflow using a fresh repository clone and modern, unpinned dependencies. While the core analysis produces expected first-digit distributions, the test suite fails due to a NumPy 2.0 incompatibility, and an undocumented warning appears during plotting. These findings demonstrate the package's continued utility while highlighting maintenance needs in its testing infrastructure.
+Benford's Law describes the expected frequency distribution of leading digits in many naturally occurring datasets. The open-source Python package *benford_py* implements statistical tests for conformity with this principle. Despite its last release (v0.5.0) in June 2021 and minimal subsequent maintenance, the package's documented workflow remains functional on a contemporary Python stack. This study verifies the workflow using a fresh repository clone and modern, unpinned dependencies. While the core analysis produces expected first-digit distributions, the test suite fails due to a NumPy 2.0 incompatibility, and an undocumented warning appears during plotting. These findings demonstrate the package's continued utility while highlighting maintenance needs in its testing infrastructure. This case study examines one GitHub repository five years after its last release; however, findings are specific to *benford_py* and cannot be generalized to all unmaintained scientific packages within the broader ecosystem.
 
 ## 1. Introduction
 
@@ -116,7 +116,7 @@ These findings underscore the importance of regular maintenance in scientific so
 
 ## 6. Conclusion
 
-As of 13 September 2026, *benford_py* (commit `0126c606ae9c27cba43e6dc83b73bb329f839ae4`) continues to execute its documented workflow correctly with current, unpinned versions of its dependencies. The workflow produced expected results for 5,968 registries, though an undocumented warning appeared during plotting. However, the package's test suite fails to run due to a NumPy 2.0 incompatibility. Thus, while *benford_py* remains functionally operational, its testing infrastructure requires updates to ensure long-term reliability.
+As of 13 September 2026, *benford_py* (commit `0126c606ae9c27cba43e6dc83b73bb329f839ae4`) continues to execute its documented workflow correctly with current, unpinned versions of its dependencies. The workflow produced expected results for 5,968 registries, though an undocumented warning appeared during plotting. However, the package's test suite fails to run due to a NumPy 2.0 incompatibility. Thus, while *benford_py* remains functionally operational, its testing infrastructure requires updates to ensure long-term reliability. This case study documents the five-year maintenance history of a single GitHub repository as a specific example; however, the findings cannot be generalized to other unmaintained repositories or used to predict broader patterns in software decay across the GitHub ecosystem without further investigation.
 
 ## 7. Data and Code Availability
 
