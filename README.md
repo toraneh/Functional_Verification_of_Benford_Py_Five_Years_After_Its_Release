@@ -8,7 +8,7 @@ This repository presents a functional verification case study of the open-source
 
 ## Research Objective
 
-Rather than generalizing about unmaintained packages broadly, this case study provides a detailed historical snapshot of a single repository at a specific moment. It acknowledges that each software project has a unique trajectory shaped by particular dependencies, development context, and maintenance decisions. The work serves as a record of how a discrete open-source contribution persists—or does not—in evolving technological landscapes.
+Rather than generalizing about unmaintained packages broadly, this case study provides a detailed historical snapshot of a single repository at a specific moment. It acknowledges that each software project has a unique trajectory shaped by particular dependencies, development context, and maintenance decisions. The work serves as a record of how a discrete open-source contribution survives—or does not—in evolving technological landscapes.
 
 ## Methodology
 
