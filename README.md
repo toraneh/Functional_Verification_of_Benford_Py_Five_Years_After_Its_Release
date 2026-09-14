@@ -1,16 +1,34 @@
+# Functional Verification of Benford_py Five Years After Its Release
+
+A case study of open-source software persistence: examining the *benford_py* Python package five years after its final release (June 2021).
+
 ## Overview
 
-This repository presents a functional verification case study of the open-source Python package *benford_py*, examining its state five years after its final release in June 2021. Benford's Law describes the expected frequency distribution of leading digits in naturally occurring datasets—a principle with applications across finance, accounting, forensics, and fraud detection. The *benford_py* package provides statistical tools to test whether datasets conform to this principle.
+This repository presents a functional verification case study of the open-source Python package *benford_py*, evaluating whether it continues to execute its documented workflow correctly within a modern Python environment despite minimal maintenance since v0.5.0 (June 2021). The study uses contemporary testing and dependency analysis to assess package state and interoperability.
 
-The study evaluates whether *benford_py* continues to execute its documented workflow correctly within a modern Python environment, despite minimal maintenance since its v0.5.0 release. Using contemporary, unpinned dependencies (pandas 3.0.5, NumPy 2.5.3, and Matplotlib 3.11.2), the analysis confirms that the core workflow remains functional and produces expected first-digit distributions. However, the test suite encounters failures due to NumPy 2.0 incompatibilities, and undocumented warnings appear during plotting operations. These findings demonstrate that while the package retains analytical utility, its testing infrastructure requires critical maintenance.
+## Research Objective
 
-## Significance as a Historical Record
+Rather than generalizing about unmaintained packages broadly, this case study provides a detailed historical snapshot of a single repository at a specific moment. It acknowledges that each software project has a unique trajectory shaped by particular dependencies, development context, and maintenance decisions. The work serves as a record of how a discrete open-source contribution persists—or does not—in evolving technological landscapes.
 
-This case study holds broader significance beyond the specific findings about *benford_py*. It serves as a detailed historical snapshot of a single GitHub repository in the present moment, documenting how unmaintained scientific software ages in practice. By providing a granular examination of one open-source project—its preserved functionality, accumulated technical debt, and points of failure—this work creates a reference point for understanding the lifecycle of GitHub repositories in the scientific Python ecosystem.
+## Methodology
 
-Rather than drawing generalizations about all unmaintained packages, this approach acknowledges the particular nature of software history: each repository has its own trajectory, dependencies, and maintenance story. In the future, this record will offer insights into how the Python ecosystem evolved and how a single project navigated (or did not navigate) that evolution. In this way, the case study functions as both a technical evaluation and a form of software archaeology—preserving evidence of what works, what breaks, and why, at a specific moment in time.
+The verification examines:
+- **Functional correctness:** Does *benford_py* execute its documented workflows?
+- **Dependency state:** Compatibility with contemporary Python environments
+- **Historical context:** The software's trajectory since final release
+
+## Significance
+
+This case study contributes to understanding software sustainability and the digital preservation challenges posed by unmaintained open-source projects. Rather than prescriptive guidance, it offers a particularized historical record that can inform discussions about software maintenance, dependency management, and long-term research reproducibility.
+
+## Citation
+
+Torane, H. (2026). Functional Verification of Benford_py Five Years After Its Release. *Preprint.* Zenodo. https://doi.org/10.5281/zenodo.22743722
+
+## License
+
+Code and materials are provided for research and educational use.
 
 ---
 
-Suggested citation:
-> Torane, H. "Functional Verification of Benford_py Five Years After Its Release". Preprint, Zenodo, September 14, 2026. https://doi.org/10.5281/zenodo.22743722.
+**Date:** September 14, 2026
