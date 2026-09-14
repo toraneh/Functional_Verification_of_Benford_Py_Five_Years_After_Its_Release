@@ -31,15 +31,15 @@ header-includes:
 
 ## Abstract
 
-Benford's Law describes the expected frequency distribution of leading digits in many naturally occurring datasets. The open-source Python package *benford_py* implements statistical tests for conformity with this principle. Despite its last release (v0.5.0) in June 2021 and minimal subsequent maintenance, the package's documented workflow remains functional on a contemporary Python stack. This study verifies the workflow using a fresh repository clone and modern, unpinned dependencies. While the core analysis produces expected first-digit distributions, the test suite fails due to a NumPy 2.0 incompatibility, and an undocumented warning appears during plotting. These findings demonstrate the package's continued utility while highlighting maintenance needs in its testing infrastructure. Respectfully, this case study examines one GitHub repository five years after its last release; however, findings are specific to *benford_py* and cannot be generalized to all unmaintained scientific packages within the broader ecosystem.
+Benford's Law describes the expected frequency distribution of leading digits in many naturally occurring datasets. The open-source Python package *benford_py* implements statistical tests for conformity with this principle. Despite its final release (v0.5.0) in June 2021 and minimal subsequent maintenance, the package's documented workflow remains functional on a contemporary Python stack. This study verifies the workflow using a fresh repository clone and modern, unpinned dependencies. The core analysis produces expected first-digit distributions; however, the test suite fails due to a NumPy 2.0 incompatibility, and an undocumented warning appears during plotting. These findings demonstrate the package's continued analytical utility while highlighting critical maintenance needs in its testing infrastructure. This case study examines one specific GitHub repository five years after its final release; the findings are particular to *benford_py* and cannot be generalized to unmaintained scientific packages within the broader ecosystem.
 
 ## 1. Introduction
 
-Benford's Law, or the First-Digit Law, predicts the frequency distribution of leading digits in many naturally occurring datasets, with smaller digits appearing more frequently. This principle has applications in finance, accounting, and fraud detection.
+Benford's Law, formally known as the First-Digit Law, describes the expected frequency distribution of leading digits in many naturally occurring datasets, with smaller digits appearing more frequently than larger ones. This principle has proven valuable in finance, accounting, forensics, and fraud detection applications.
 
-The *benford_py* package provides statistical tests for conformity with Benford's Law. Notably, the package has no associated peer-reviewed publication, as its `CITATION.cff` file references only the GitHub repository. The last tagged release (v0.5.0) was published in June 2021, and the master branch has since received only a single commit—a license-header correction in October 2022 that introduced no functional changes.
+The *benford_py* package provides statistical tests for assessing conformity with Benford's Law. Notably, the package lacks an associated peer-reviewed publication; its `CITATION.cff` file references only the GitHub repository. The final tagged release (v0.5.0) was published in June 2021, and the repository's master branch has since received only a single commit—a license-header correction in October 2022 that introduced no functional changes.
 
-This study evaluates whether *benford_py* continues to execute its documented workflow correctly on a modern Python environment, addressing broader concerns about software decay in unmaintained scientific packages.
+This study evaluates whether *benford_py* continues to execute its documented workflow correctly within a modern Python environment, addressing broader concerns about software sustainability and decay in unmaintained scientific packages.
 
 \pagebreak
 
@@ -50,11 +50,11 @@ This study evaluates whether *benford_py* continues to execute its documented wo
 | Repository | [github.com/milcent/benford_py](https://github.com/milcent/benford_py) |
 | Commit | `0126c606ae9c27cba43e6dc83b73bb329f839ae4` |
 | Commit date | 11 October 2022 |
-| Last tagged release | v0.5.0 (June 2021) |
+| Final tagged release | v0.5.0 (June 2021) |
 | Python interpreter | 3.13.5 |
 | Dependencies | pandas 3.0.5, NumPy 2.5.3, Matplotlib 3.11.2 |
 | Sample dataset | `data/SPY.csv` (bundled) |
-| Test suite status | Fails at collection: `np.float_` reference (removed in NumPy 2.0) |
+| Test suite status | Collection failure: `np.float_` reference (removed in NumPy 2.0) |
 | Verification timestamp | 13 September 2026, 19:46 IST |
 
 ## 3. Methodology
@@ -70,17 +70,17 @@ To assess *benford_py*'s current functionality, the following steps were underta
 
 3. **Test Suite Evaluation**: The package's pytest suite was executed to determine whether it remains functional.
 
-4. **Evidence Capture**: The resolved commit metadata, the complete dependency environment (via `pip freeze`), and the raw workflow and pytest output were captured for independent verification (reproduced in Appendix A).
+4. **Evidence Capture**: The resolved commit metadata, the complete dependency environment (via `pip freeze`), and the raw workflow and pytest output were captured for independent verification and reproducibility (detailed in Appendix A).
 
 ## 4. Results
 
 ### 4.1 Workflow Execution
 
-The documented workflow executed successfully:
+The documented workflow executed successfully without errors:
 
-- The sample data loaded without errors.
-- Simple and logarithmic returns were computed correctly.
-- The first-digit Benford test processed **5,968 registries** (0 discarded).
+- The sample data loaded correctly.
+- Simple and logarithmic returns were computed as expected.
+- The first-digit Benford test processed **5,968 registries** with **0 records discarded**.
 
 **First-digit distribution**:
 
@@ -96,31 +96,31 @@ The documented workflow executed successfully:
 | 8 | 345 | 5.78 | 5.12 |
 | 9 | 310 | 5.19 | 4.58 |
 
-An undocumented `UserWarning` was raised during the plotting phase, indicating a minor discrepancy between documented and actual behavior.
+The observed distribution closely matches theoretical expectations. Additionally, an undocumented `UserWarning` was raised during the plotting phase, indicating a discrepancy between the documented behavior and the actual runtime implementation.
 
 ### 4.2 Test Suite Evaluation
 
-The pytest suite failed during the collection phase due to a reference to `np.float_` in `tests/conftest.py:174`, which raises an `AttributeError` in NumPy 2.0 (`np.float_` was removed; use `np.float64` instead). This issue does not affect runtime functionality but prevents test execution.
+The pytest suite failed during the collection phase due to a reference to `np.float_` in `tests/conftest.py:174`, which raises an `AttributeError` in NumPy 2.0 (`np.float_` was removed; the recommended replacement is `np.float64`). This issue does not affect runtime functionality or the accuracy of the workflow results but prevents test execution entirely.
 
 ## 5. Discussion
 
-The successful execution of *benford_py*'s documented workflow demonstrates that its core functionality remains compatible with modern Python environments, despite four years without functional updates. The first-digit distribution aligns with Benford's Law expectations, confirming the package's analytical validity.
+The successful execution of *benford_py*'s documented workflow demonstrates that its core functionality remains compatible with modern Python environments, despite four years without functional updates. The observed first-digit distribution aligns closely with Benford's Law expectations, confirming the package's analytical validity.
 
 However, two issues warrant attention:
 
-1. **Test Suite Failure**: The deprecated `np.float_` reference prevents test execution, revealing a maintenance gap in the testing infrastructure. While this does not impact runtime behavior, it undermines confidence in the package's reliability.
+1. **Test Suite Failure**: The deprecated `np.float_` reference prevents test execution, revealing a significant maintenance gap in the testing infrastructure. While this does not directly impact runtime behavior or analytical results, it undermines confidence in the package's long-term reliability and makes it impossible to verify that future dependency updates will not introduce breaking changes.
 
-2. **Undocumented Behavior**: The `UserWarning` during plotting suggests undocumented behaviors that could mislead users relying solely on official documentation.
+2. **Undocumented Behavior**: The `UserWarning` during plotting suggests undocumented behaviors that could mislead users who rely solely on the official documentation. Such discrepancies should be formally documented or resolved to ensure transparency and consistency.
 
-These findings underscore the importance of regular maintenance in scientific software, even when core functionality appears stable. The study also demonstrates that workflow functionality does not guarantee test suite compatibility, emphasizing the need for comprehensive verification.
+These findings underscore the importance of regular maintenance in scientific software, even when core functionality appears stable and functional. The study also demonstrates that workflow functionality does not guarantee test suite compatibility, emphasizing the critical need for comprehensive verification across all package components.
 
 ## 6. Conclusion
 
-As of 13 September 2026, *benford_py* (commit `0126c606ae9c27cba43e6dc83b73bb329f839ae4`) continues to execute its documented workflow correctly with current, unpinned versions of its dependencies. The workflow produced expected results for 5,968 registries, though an undocumented warning appeared during plotting. However, the package's test suite fails to run due to a NumPy 2.0 incompatibility. Thus, while *benford_py* remains functionally operational, its testing infrastructure requires updates to ensure long-term reliability. This case study documents the five-year maintenance history of a single GitHub repository as a specific example; however, the findings cannot be generalized to other unmaintained repositories or used to predict broader patterns in software decay across the GitHub ecosystem without further investigation.
+As of 13 September 2026, *benford_py* (commit `0126c606ae9c27cba43e6dc83b73bb329f839ae4`) continues to execute its documented workflow correctly with current, unpinned versions of its dependencies. The workflow produced expected results for 5,968 registries, though an undocumented warning appeared during plotting. However, the package's test suite fails to run due to a NumPy 2.0 incompatibility, preventing systematic validation of functionality. While *benford_py* remains analytically operational, its testing infrastructure requires updates to ensure long-term reliability and maintainability. This case study documents the five-year maintenance history of a single GitHub repository; however, the findings are specific to *benford_py* and cannot be generalized to other unmaintained repositories or used to predict broader patterns in software decay across the GitHub ecosystem without further investigation.
 
 ## 7. Data and Code Availability
 
-No new data were generated for this study. The software under test, *benford_py*, is publicly available at [github.com/milcent/benford_py](https://github.com/milcent/benford_py) (commit `0126c606ae9c27cba43e6dc83b73bb329f839ae4`). The sample dataset (`data/SPY.csv`) is included in the repository. Reproduction commands are provided in Appendix B.
+No novel data were generated for this study. The software under test, *benford_py*, is publicly available at [github.com/milcent/benford_py](https://github.com/milcent/benford_py) (commit `0126c606ae9c27cba43e6dc83b73bb329f839ae4`). The sample dataset (`data/SPY.csv`) is included in the repository. Complete reproduction commands are provided in Appendix B.
 
 ## 8. Conflicts of Interest
 
@@ -202,7 +202,7 @@ First_1_Dig
 
 ### Raw Pytest Output
 
-Executing the package's own test suite (`pytest tests/`) failed during the collection phase:
+Execution of the package's test suite (`pytest tests/`) failed during the collection phase:
 
 ```
 ImportError while loading conftest
@@ -218,7 +218,7 @@ E   AttributeError: `np.float_` was removed in the NumPy 2.0 release.
 Use `np.float64` instead.
 ```
 
-This is a collection-time `AttributeError` raised by a deprecated NumPy alias referenced in the test fixtures, not a failure of any assertion in the package's runtime source code.
+This is a collection-time `AttributeError` raised by a deprecated NumPy alias referenced in the test fixtures, not a failure arising from any assertion in the package's runtime source code.
 
 \pagebreak
 
@@ -262,6 +262,6 @@ PY
 ./benford_env/bin/python -m pytest tests/
 ```
 
-Step 3 reproduces the first-digit distribution and `UserWarning` reported in Section 4.1. Step 4 reproduces the `np.float_` collection failure reported in Section 4.2. For exact reproducibility, pin versions explicitly: `pip install pandas==3.0.5 numpy==2.5.3 matplotlib==3.11.2 pytest==9.1.1`.
+Step 3 reproduces the first-digit distribution and `UserWarning` reported in Section 4.1. Step 4 reproduces the `np.float_` collection failure reported in Section 4.2. For exact reproducibility, explicitly pin versions: `pip install pandas==3.0.5 numpy==2.5.3 matplotlib==3.11.2 pytest==9.1.1`.
 
-**Date tested**: 13 September 2026.
+**Verification date**: 13 September 2026.
