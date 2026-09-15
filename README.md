@@ -1,6 +1,6 @@
 # Functional Verification of Benford_py Five Years After Its Release
 
-A case study of open-source software persistence: examining the *benford_py* Python package five years after its final release (June 2021).
+A case study of open-source software survival: examining the *benford_py* Python package five years after its final release (June 2021).
 
 ## Overview
 
