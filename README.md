@@ -23,7 +23,7 @@ This case study contributes to understanding software sustainability and the dig
 
 ## Citation
 
-Torane, H. “Functional Verification of Benford_py Five Years After Its Release”. Preprint, Zenodo, September 14, 2026. https://doi.org/10.5281/zenodo.22743721
+> Torane, H. “Functional Verification of Benford_py Five Years After Its Release”. Preprint, Zenodo, September 14, 2026. https://doi.org/10.5281/zenodo.22743721
 
 ## License
 
