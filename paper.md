@@ -260,6 +260,9 @@ PY
 
 # 4. Secondary check -- test suite
 ./benford_env/bin/python -m pytest tests/
+# The experiment intentionally uses unpinned dependencies to test the package
+# against a contemporary Python stack. The exact environment used for the
+# reported results is recorded in Appendix A.
 ```
 
 Step 3 reproduces the first-digit distribution and `UserWarning` reported in Section 4.1. Step 4 reproduces the `np.float_` collection failure reported in Section 4.2. For exact reproducibility, explicitly pin versions: `pip install pandas==3.0.5 numpy==2.5.3 matplotlib==3.11.2 pytest==9.1.1`.
